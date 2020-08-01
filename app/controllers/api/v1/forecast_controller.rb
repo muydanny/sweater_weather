@@ -1,8 +1,8 @@
 class Api::V1::ForecastController < ApplicationController
 
   def index
-    # location_info =
-    map_info = MapquestService.new.get_directions(params[:location])
+    map_info = MapquestService.new.get_lat_long(params[:location])
+
     open_weather_info = OpenWeatherService.new.get_forecast(map_info)
     # location = params[:location]
     # conn = Faraday.new(url: "api.openweathermap.org") do |faraday|
