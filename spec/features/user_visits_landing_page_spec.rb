@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe "As a user I can see the forecast of a city" do
-  scenario "retrieve weather for todays forecast" do
+  xit "retrieve weather for todays forecast" do
 
     visit '/'
-
+    
     expect(page).to have_content('Sign Up')
     expect(page).to have_content('Login')
     expect(page).to have_content('Sweater Weather')
