@@ -5,8 +5,7 @@ class OpenWeatherService
       req.params["appid"] = ENV["OPEN_WEATHER_KEY"]
       req.params["location"] = location
     end
-    json = JSON.parse(response.body, symbolize_names: true)
-    WeatherInfo.new(json)
+    JSON.parse(response.body, symbolize_names: true)
   end
 
   private
@@ -15,7 +14,7 @@ class OpenWeatherService
     Faraday.new("https://api.openweathermap.org") do |req|
       req.params["appid"] = ENV["OPEN_WEATHER_KEY"]
       req.params["exclude"] = "minutely"
-      req.params["unit"] = "imperial"
+      req.params["units"] = "imperial"
     end
   end
 end

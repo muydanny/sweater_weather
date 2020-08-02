@@ -1,4 +1,4 @@
 class OpenWeatherSerializer
   include FastJsonapi::ObjectSerializer
-  require 'pry'; binding.pry
+  attributes :current_weather_description
 end
