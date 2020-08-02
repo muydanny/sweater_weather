@@ -16,4 +16,3 @@ class MapquestService
     end
   end
 end
-# "latLng"=>{"lat"=>39.738453, "lng"=>-104.984853}
