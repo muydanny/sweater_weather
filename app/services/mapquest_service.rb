@@ -4,7 +4,8 @@ class MapquestService
       req.params["key"] = ENV["MAP_KEY"]
       req.params["location"] = location
     end
-    JSON.parse(response.body, symbolize_names: true)
+    json = JSON.parse(response.body, symbolize_names: true)
+    json[:results][0][:locations][0][:latLng]
   end
 
   private
