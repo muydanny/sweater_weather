@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
       get 'forecast', controller: 'forecast', action: 'index'
+      get 'background', controller: 'background', action: 'show'
     end
   end
 end
