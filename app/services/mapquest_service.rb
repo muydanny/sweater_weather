@@ -12,7 +12,7 @@ class MapquestService
     response = conn.get("/directions/v2/route") do |req|
       req.params["key"] = ENV["MAP_KEY"]
       req.params["from"] = location
-      req.params["to"] = trail_location[:trails][0][:name]
+      req.params["to"] = trail_location[:trails][0][:location]
     end
     json = JSON.parse(response.body, symbolize_names: true)
   end
