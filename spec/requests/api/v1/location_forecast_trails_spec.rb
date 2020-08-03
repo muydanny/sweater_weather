@@ -12,6 +12,23 @@ describe "Forecast for nearby trails" do
     expect(body["data"]["attributes"]["trail_difficulty"]).to eq("black")
     expect(body["data"]["attributes"]["trail_location"]).to eq("Superior, Colorado")
   end 
+  
+  it "can get the forecast for the current location" do 
+    get "/api/v1/trails?location=denver,co"
+    expect(response).to be_successful  
+    body = JSON.parse(response.body)
+    
+    expect(body["data"]["attributes"]["forecats"]["summary"]).to eq("cloudy")
+    expect(body["data"]["attributes"]["forecats"]["temperature"]).to eq("something something")
+  end
+
+  # it "can get the distance to the trail" do 
+  #   get "/api/v1/trails?location=denver,co"
+  #   expect(response).to be_successful  
+  #   body = JSON.parse(response.body)
+    
+    
+  # end
 end
 
 

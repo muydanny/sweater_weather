@@ -6,7 +6,7 @@ class Trail
               :trail_difficulty,
               :trail_location
 
-  def initialize(trail_info)
+  def initialize(trail_info, weather_info)
     @id = nil
     @trail_name = trail_info[:trails][0][:name]
     @trail_summary = trail_info[:trails][0][:summary]
