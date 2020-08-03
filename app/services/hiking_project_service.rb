@@ -4,7 +4,6 @@ class HikingProjectService
     req.params["key"] = ENV["HIKING_PROJECT_KEY"]
   end
     JSON.parse(response.body, symbolize_names: true)
-    
   end
 
   private
