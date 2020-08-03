@@ -2,10 +2,11 @@ require 'rails_helper'
 
 describe "Registration" do
   it "can register a new user" do
-    post '/api/v1/users', params: { body: { email: "whatever@example.com", password: "password", password_confirmation: "password"}}
-
+    user_params = { email: "whatever@example.com", password: "password", password_confirmation: "password"}
+    post '/api/v1/users', params: {user: user_params}
+    user = User.last
     expect(response).to be_successful  
-      
+    expect(user.email).to eq(item_params[:email])
   end 
 end
 
