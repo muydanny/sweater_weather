@@ -13,11 +13,12 @@ describe "Forecast for nearby trails" do
     expect(body["data"]["attributes"]["trail_location"]).to eq("Superior, Colorado")
   end 
   
-  it "can get the forecast for the current location" do 
+  it "can get the forecast for the current location", :vcr do 
+
     get "/api/v1/trails?location=denver,co"
     expect(response).to be_successful  
     body = JSON.parse(response.body)
-    
+    require 'pry'; binding.pry
     expect(body["data"]["attributes"]["forecats"]["summary"]).to eq("cloudy")
     expect(body["data"]["attributes"]["forecats"]["temperature"]).to eq("something something")
   end
