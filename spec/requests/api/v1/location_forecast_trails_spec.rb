@@ -18,9 +18,9 @@ describe "Forecast for nearby trails" do
     get "/api/v1/trails?location=denver,co"
     expect(response).to be_successful  
     body = JSON.parse(response.body)
-    require 'pry'; binding.pry
-    expect(body["data"]["attributes"]["forecats"]["summary"]).to eq("cloudy")
-    expect(body["data"]["attributes"]["forecats"]["temperature"]).to eq("something something")
+    
+    expect(body["data"]["attributes"]["current_location_weather_summary"]).to eq("clear sky")
+    expect(body["data"]["attributes"]["current_location_temp"]).to eq(73.18)
   end
 
   # it "can get the distance to the trail" do 
