@@ -8,6 +8,15 @@ class MapquestService
     json[:results][0][:locations][0][:latLng]
   end
 
+  def get_distance(location, trail_location)
+    response = conn.get("/directions/v2/route") do |req|
+      req.params["key"] = ENV["MAP_KEY"]
+      req.params["from"] = location
+      req.params["to"] = trail_location[:trails][0][:name]
+    end
+    json = JSON.parse(response.body, symbolize_names: true)
+  end
+
   private
 
   def conn
