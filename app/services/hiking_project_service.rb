@@ -3,8 +3,8 @@ class HikingProjectService
     response = conn.get("/data/get-trails?lat=#{location[:lat]}&lon=#{location[:lng]}") do |req|
     req.params["key"] = ENV["HIKING_PROJECT_KEY"]
   end
-    require 'pry'; binding.pry
     JSON.parse(response.body, symbolize_names: true)
+    
   end
 
   private
