@@ -4,7 +4,9 @@ class Trail
               :trail_name,
               :trail_summary,
               :trail_difficulty,
-              :trail_location
+              :trail_location,
+              :current_location_weather_summary,
+              :current_location_temp
 
   def initialize(trail_info, weather_info)
     @id = nil
