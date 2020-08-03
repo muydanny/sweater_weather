@@ -7,7 +7,7 @@ class Trail
               :trail_location,
               :current_location_weather_summary,
               :current_location_temp,
-              :trail_distance_from_current_location
+              :distance_to_trail
 
   def initialize(trail_info, weather_info, distance_info)
     @id = nil
@@ -17,7 +17,7 @@ class Trail
     @trail_location = trail_info[:trails][0][:location]
     @current_location_weather_summary = weather_info[:current][:weather][0][:description]
     @current_location_temp = weather_info[:current][:temp]
-    @trail_distance_from_current_location = distance_info[:route][:distance]
+    @distance_to_trail = distance_info[:route][:distance]
     #NOTE: can use the trail location to find distance from starting location
   end
 end
