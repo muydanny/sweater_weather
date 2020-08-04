@@ -1,9 +1,7 @@
 class Api::V1::SessionsController < ApplicationController
 
   def create
-    require 'pry'; binding.pry
-    user = User.find_by(params[:user][:email])
-
+    user = User.find_by(params[:email])
     if user && user.authenticate(params[:user][:password])
       render json: UsersSerializer.new(user).serialized_json, :status => 201
     else
