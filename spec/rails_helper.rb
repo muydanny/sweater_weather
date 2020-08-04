@@ -69,6 +69,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('<OPEN_WEATHER_KEY>') {ENV['OPEN_WEATHER_KEY']}
   config.filter_sensitive_data('<MAP_KEY>') {ENV['MAP_KEY']}
   config.filter_sensitive_data('<UNSPLASH_KEY>') {ENV['UNSPLASH_KEY']}
+  config.filter_sensitive_data('<HIKING_PROJECT_KEY>') {ENV['HIKING_PROJECT_KEY']}
   config.configure_rspec_metadata!
 end
 
