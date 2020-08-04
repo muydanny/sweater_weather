@@ -1,7 +1,6 @@
 class MapquestService
   def get_lat_long(location)
     response = conn.get("/geocoding/v1/address") do |req|
-      req.params["key"] = ENV["MAP_KEY"]
       req.params["location"] = location
     end
     json = JSON.parse(response.body, symbolize_names: true)
@@ -10,7 +9,6 @@ class MapquestService
 
   def get_distance(location, trail_location)
     response = conn.get("/directions/v2/route") do |req|
-      req.params["key"] = ENV["MAP_KEY"]
       req.params["from"] = location
       req.params["to"] = trail_location[:trails][0][:location]
     end

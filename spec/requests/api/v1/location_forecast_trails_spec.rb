@@ -14,13 +14,12 @@ describe "Retrieve the forecast for a location and nearby trails" do
   end 
   
   it "can get the forecast for the current location", :vcr do 
-
     get "/api/v1/trails?location=denver,co"
     expect(response).to be_successful  
     body = JSON.parse(response.body)
     
-    expect(body["data"]["attributes"]["current_location_weather_summary"]).to eq("scattered clouds")
-    expect(body["data"]["attributes"]["current_location_temp"]).to eq(84.54)
+    expect(body["data"]["attributes"]["current_location_weather_summary"]).to eq("light rain")
+    expect(body["data"]["attributes"]["current_location_temp"]).to eq(75.67)
   end
 
   it "can get the distance to the trail", :vcr do 
