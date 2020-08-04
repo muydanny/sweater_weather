@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Registration" do
+describe "Registration API" do
   it "can register a new user" do
     user_params = { email: "whatever@example.com", password: "password", password_confirmation: "password"}
     post '/api/v1/users', params: {user: user_params}
