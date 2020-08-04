@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
   def create
     new_user = User.new(user_params)
     if new_user.save
-      render json: UsersSerializer.new(new_user).serialized_json
+      render json: UsersSerializer.new(new_user).serialized_json, :status => 201
     else
       # error
     end
