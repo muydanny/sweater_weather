@@ -13,7 +13,7 @@ describe "Login API" do
     expect(json["data"]["type"]).to eq("users")
     expect(json["data"]["attributes"]["email"]).to eq(user.email)
     expect(user.api_key).to be_a(String)
-    expect(response).to have_http_status(201)
+    expect(response).to have_http_status(200)
   end 
 end
 #   POST /api/v1/sessions
