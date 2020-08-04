@@ -18,8 +18,8 @@ describe "Retrieve the forecast for a location and nearby trails" do
     expect(response).to be_successful  
     body = JSON.parse(response.body)
     
-    expect(body["data"]["attributes"]["current_location_weather_summary"]).to eq("light rain")
-    expect(body["data"]["attributes"]["current_location_temp"]).to eq(75.67)
+    expect(body["data"]["attributes"]["current_location_weather_summary"]).to be_a(String)
+    expect(body["data"]["attributes"]["current_location_temp"]).to be_a(Float)
   end
 
   it "can get the distance to the trail", :vcr do 
@@ -27,7 +27,7 @@ describe "Retrieve the forecast for a location and nearby trails" do
     expect(response).to be_successful  
     body = JSON.parse(response.body)
     
-    expect(body["data"]["attributes"]["distance_to_trail"]).to eq(23.008)
+    expect(body["data"]["attributes"]["distance_to_trail"]).to be_a(Float)
   end
 end
 
