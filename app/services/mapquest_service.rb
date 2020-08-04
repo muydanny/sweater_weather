@@ -14,7 +14,6 @@ class MapquestService
       req.params["to"] = destination
     end
     json = JSON.parse(response.body, symbolize_names: true)
-    require 'pry'; binding.pry
   end
   
   private
