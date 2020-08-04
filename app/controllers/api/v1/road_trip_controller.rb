@@ -1,11 +1,11 @@
 class Api::V1::RoadTripController < ApplicationController
 
   def create
-    require 'pry'; binding.pry
     user = User.where(params[:api_key]).first
-    weather_info = OpenWeatherService.new.get_forecast(road_trip_params[:destination])
+    map_info = MapquestService.new.get_lat_long(road_trip_params[:destination])
+    weather_info = OpenWeatherService.new.get_forecast(map_info)
     road_trip_info = MapquestService.new.road_trip(road_trip_params[:origin], road_trip_params[:destination])
-    destination = Destination.new(weather_info, road_trip_info)
+    destination = Destination.new(road_trip_params, weather_info, road_trip_info)
     
     render json: RoadTripSerializer.new(Destination.new(weather_info, road_trip_info))
   end
@@ -13,7 +13,7 @@ class Api::V1::RoadTripController < ApplicationController
   private
 
   def road_trip_params
-    params.permit(:origin, :destination)
+    params.require(:road_trip).permit(:origin, :destination)
   end
 
 end
