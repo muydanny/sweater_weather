@@ -2,7 +2,13 @@ require 'securerandom'
 class Api::V1::UsersController < ApplicationController
 
   def create
-    render json: User.create(user_params)
+    new_user = User.new(user_params)
+    if new_user.save
+      render json: UsersSerializer.new(new_user).serialized_json
+    else
+      # error
+    end
+    #  render json: UserSerializer.new(User.create(user_params))
   end
 
   private

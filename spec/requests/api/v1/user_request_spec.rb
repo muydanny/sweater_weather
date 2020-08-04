@@ -6,7 +6,7 @@ describe "Registration" do
     post '/api/v1/users', params: {user: user_params}
     user = User.last
     expect(response).to be_successful  
-    expect(user.email).to eq(item_params[:email])
+    expect(user.email).to eq(user_params[:email])
   end 
 end
 
