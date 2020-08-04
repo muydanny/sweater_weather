@@ -15,27 +15,12 @@ describe "Registration" do
     expect(user.api_key).to be_a(String)
     expect(response).to have_http_status(201)
   end 
+
+  it "can get a 400 level status code if request wasnt successful" do 
+    user_params = { email: "whatever@example.com", password: "password", password_confirmation: "password123"}
+    post '/api/v1/users', params: {user: user_params}
+
+    expect(response).to_not be_successful  
+    expect(response).to have_http_status(400)
+  end
 end
-
-
-# Request
-# {
-#   "email": "whatever@example.com",
-#   "password": "password"
-#   "password_confirmation": "password"
-# }
-
-# Response
-# status: 201
-# body:
-
-# {
-#   "data": {
-#     "type": "users",
-#     "id": "1",
-#     "attributes": {
-#       "email": "whatever@example.com",
-#       "api_key": "jgn983hy48thw9begh98h4539h4"
-#     }
-#   }
-# }
