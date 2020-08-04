@@ -27,25 +27,3 @@ describe "Login API" do
     expect(json["error"]).to eq("No such user; check the submitted email address")
   end
 end
-#   POST /api/v1/sessions
-# Content-Type: application/json
-# Accept: application/json
-
-# {
-#   "email": "whatever@example.com",
-#   "password": "password"
-# }
-
-# status: 200
-# body:
-
-# {
-#   "data": {
-#     "type": "users",
-#     "id": "1",
-#     "attributes": {
-#       "email": "whatever@example.com",
-#       "api_key": "jgn983hy48thw9begh98h4539h4"
-#     }
-#   }
-# }
