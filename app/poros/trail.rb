@@ -18,6 +18,5 @@ class Trail
     @current_location_weather_summary = weather_info[:current][:weather][0][:description]
     @current_location_temp = weather_info[:current][:temp]
     @distance_to_trail = distance_info[:route][:distance]
-    #NOTE: can use the trail location to find distance from starting location
   end
 end
