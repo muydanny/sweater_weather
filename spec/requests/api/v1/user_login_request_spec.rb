@@ -15,6 +15,17 @@ describe "Login API" do
     expect(user.api_key).to be_a(String)
     expect(response).to have_http_status(200)
   end 
+
+  it "returns a 400 level status code with bad credentials" do 
+    user_params = { email: "bademail@example.com", password: "password"}
+    post '/api/v1/sessions', params: {user: user_params}
+    
+    expect(response).to_not be_successful  
+    json = JSON.parse(response.body)
+    
+    expect(response).to have_http_status(400)
+    expect(json["error"]).to eq("No such user; check the submitted email address")
+  end
 end
 #   POST /api/v1/sessions
 # Content-Type: application/json
