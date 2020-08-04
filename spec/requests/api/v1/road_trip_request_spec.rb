@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'securerandom'
 
 describe "Road Trip API" do
-  it "can give user origin, destination, and api key" do
+  it "can give user origin, destination, and api key", :vcr do
 
     @user = create(:user)
     user_params = { email: "whatever@example.com", password: "password", password_confirmation: "password"}
