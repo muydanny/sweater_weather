@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Login API" do
   it "can login a registered user" do
-    user_params = { email: "whatever@example.com", password: "password", password_confirmation: "password"}
+    user_params = { email: "whatever@example.com", password: "password"}
     post '/api/v1/sessions', params: {user: user_params}
     
     expect(response).to be_successful  
