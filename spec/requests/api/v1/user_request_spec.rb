@@ -16,8 +16,16 @@ describe "Registration" do
     expect(response).to have_http_status(201)
   end 
 
-  it "can get a 400 level status code if request wasnt successful" do 
+  it "can get a 400 level status code if password confirmation doesnt match" do 
     user_params = { email: "whatever@example.com", password: "password", password_confirmation: "password123"}
+    post '/api/v1/users', params: {user: user_params}
+
+    expect(response).to_not be_successful  
+    expect(response).to have_http_status(400)
+  end
+
+  it "can get a 400 level status code if password is left blank" do 
+    user_params = { email: "whatever@example.com", password: "", password_confirmation: ""}
     post '/api/v1/users', params: {user: user_params}
 
     expect(response).to_not be_successful  
