@@ -19,6 +19,8 @@ gem 'fast_jsonapi'
 gem 'faraday'
 gem 'figaro'
 gem 'bcrypt'
+gem 'dotiw'
+gem 'simplecov', require: false, group: :test
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -44,6 +46,7 @@ end
 group :test do 
   gem 'webmock'
   gem 'vcr'
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
