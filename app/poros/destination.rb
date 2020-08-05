@@ -11,7 +11,7 @@ class Destination
               :id,
               :weather_info,
               :road_trip_info,
-              :orign,
+              :origin,
               :destination,
               :travel_time,
               :arrival_forecast_temp,
