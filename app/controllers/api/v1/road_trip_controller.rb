@@ -6,7 +6,7 @@ class Api::V1::RoadTripController < ApplicationController
     weather_info = OpenWeatherService.new.get_forecast(map_info)
     road_trip_info = MapquestService.new.road_trip(road_trip_params[:origin], road_trip_params[:destination])
     
-    render json: RoadTripSerializer.new(Destination.new(road_trip_params, weather_info, road_trip_info))
+    render json: RoadTripSerializer.new(Destination.new(road_trip_params, weather_info, road_trip_info)).serialized_json
   end
 
   private
