@@ -16,6 +16,11 @@ describe "Road Trip API" do
     expect(response).to be_successful  
     json = JSON.parse(response.body)
     
+    expect(json["data"]["attributes"]["origin"]).to eq("denver,co")
+    expect(json["data"]["attributes"]["destination"]).to eq("pueblo,co")
+    expect(json["data"]["attributes"]["travel_time"]).to eq("1 hour, 43 minutes, and 57 seconds")
+    expect(json["data"]["attributes"]["arrival_forecast_temp"]).to eq(78.31)
+    expect(json["data"]["attributes"]["arrival_forecast_description"]).to eq("broken clouds")
   end 
 
 end
