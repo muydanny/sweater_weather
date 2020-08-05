@@ -78,6 +78,9 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
     diff-lcs (1.4.4)
+    dotiw (5.0.0)
+      activesupport
+      i18n
     erubi (1.9.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
@@ -234,6 +237,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara
+  dotiw
   factory_bot_rails
   faker
   faraday
