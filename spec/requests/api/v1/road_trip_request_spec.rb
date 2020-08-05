@@ -19,8 +19,8 @@ describe "Road Trip API" do
     expect(json["data"]["attributes"]["origin"]).to eq("denver,co")
     expect(json["data"]["attributes"]["destination"]).to eq("pueblo,co")
     expect(json["data"]["attributes"]["travel_time"]).to eq("1 hour, 43 minutes, and 57 seconds")
-    expect(json["data"]["attributes"]["arrival_forecast_temp"]).to eq(76.39)
-    expect(json["data"]["attributes"]["arrival_forecast_description"]).to eq("scattered clouds")
+    expect(json["data"]["attributes"]["arrival_forecast_temp"]).to be_a(Float)
+    expect(json["data"]["attributes"]["arrival_forecast_description"]).to be_a(String)
   end 
 
   it 'returns error without proper credentials' do
